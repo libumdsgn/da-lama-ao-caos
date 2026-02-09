@@ -7,3 +7,5 @@
 [node name="Player" parent="." unique_id=930173296 instance=ExtResource("1_1pckq")]
 position = Vector2(507, 449)
 scale = Vector2(4, 4)
+aceleracao = 1100.0
+desaceleracao = 880.0
