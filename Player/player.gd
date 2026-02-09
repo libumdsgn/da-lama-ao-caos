@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 @export var velocidade = 220.0
 @export var multiplicador_y = 0.7
+@export var aceleracao = 880.0
+@export var desaceleracao = 1100.0
 
 func _ready():
 	return
@@ -18,6 +20,8 @@ func _physics_process(_delta):
 	
 	input_vector.y *= multiplicador_y
 	
-	velocity = input_vector * velocidade
+	var velocidade_alvo = input_vector * velocidade
+	var taxa = aceleracao if input_vector != Vector2.ZERO else desaceleracao
+	velocity = velocity.move_toward(velocidade_alvo,taxa * _delta)
 	
 	move_and_slide()
